@@ -1,0 +1,37 @@
+{% extends 'layouts/master.html' %} 
+
+{% block title %}
+    Employee - Details
+{% endblock %}
+
+{% block content %}
+
+<div class="container mt-5">
+  <h1>This employee detail page</h1>
+  <a href="{% url 'emp-index' %}" class="btn btn-primary">Back</a>
+  <div class="row">
+    <div class="col-md-4"></div>
+    <div class="col-md-4">
+    <div class="card" style="width: 18rem;">
+      <div class="card-body">
+        <h5 class="card-title">Employee</h5>
+      </div>
+      <ul class="list-group list-group-flush">
+        <li class="list-group-item">Full Name: {{ data.full_name }}</li>
+        <li class="list-group-item">Contact: {{ data.contact }}</li>
+        <li class="list-group-item">Email: {{ data.email }}</li>
+        <li class="list-group-item">Dob: {{ data.dob }}</li>
+        <li class="list-group-item">Join Date {{ data.join_date }}</li>
+        <li class="list-group-item">Gender: {{ data.gender }}</li>
+        <li class="list-group-item">Blood Group: {{ data.blood_group }}</li>
+        <li class="list-group-item">Address: {{ data.address }}</li>
+      </ul>
+    </div>
+    </div>
+    <div class="col-md-4"></div>
+  </div>
+</div>
+
+
+
+{% endblock %}

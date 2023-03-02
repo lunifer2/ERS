@@ -1,0 +1,46 @@
+{% extends 'layouts/master.html' %} 
+
+{% block title %}
+    Employee - List
+{% endblock %}
+{% block custom_css %}
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css"/>
+{% endblock %}
+{% block content %}
+<div class="container mt-5">
+    {% include "partials/_message.html" %}
+    <h1>This is employee index</h1>
+    <hr>
+    <a href="{% url 'emp-add' %}" class="btn btn-primary">Add</a>
+    <table class="table table-striped-columns">
+        <thead>
+            <tr>
+                <th>S.No</th>
+                <th>Name</th>
+                <th>Contact</th>
+                <th>Email</th>
+                <th>Department</th>
+                <th colspan="3">Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for val in data %}
+            <tr>
+                <td>{{ forloop.counter }}</td>
+                <td>{{ val.full_name }}</td>
+                <td>{{ val.contact }}</td>
+                <td>{{ val.email }}</td>
+                <td>{{ val.department }}</td>
+                <td><a href="{% url 'emp-edit' val.id %}"><i class="fa-solid fa-user-pen"></i></a></td>
+                <td><a href="{% url 'emp-delete' val.id %}"><i class="fa-solid fa-trash"></i></a></td>
+                <td><a href="{% url 'emp-show' val.id %}"><i class="fa-solid fa-eye"></i></a></td>
+            </tr>
+            {% endfor %}
+        
+        </tbody>
+    </table>
+
+    </hr>
+</div>
+
+{% endblock %}
