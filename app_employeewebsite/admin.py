@@ -1,11 +1,11 @@
 from django.contrib import admin
-from .models import Department,Employee
+from .models import Department, Employee
 
 # Register your models here.
 class AdminEmployee(admin.ModelAdmin):
     list_display = ("full_name", "join_date", "email", "contact")
-    search_fields = ("full_name","email")
-    list_filter = ("full_name","email")
+    search_fields = ("full_name", "email")
+    list_filter = ("full_name", "email")
 
 admin.site.register(Department)
 admin.site.register(Employee, AdminEmployee)

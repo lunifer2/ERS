@@ -1,70 +1,110 @@
-{% extends 'layouts/master.html' %} 
+{% extends 'layouts/master.html' %}
 
 {% block title %}
     Employee - Edit
 {% endblock %}
 
 {% block content %}
-
-<div class="container mt-5">
-    <h1>This employee edit page</h1>
-    <a href="{% url 'emp-index' %}" class="btn btn-primary">Back</a>
+<div class="container mt-5 mb-5">
+    <h1>This is employee edit page</h1>
+    <a href="{% url 'emp-index' %}" class="btn btn-primary">BACK</a>
     <hr>
+
     <div class="row">
         <div class="col-md-2"></div>
         <div class="col-md-8">
             <form action="{% url 'emp-update' %}" method="post">
                 {% csrf_token %}
-                <input type="hidden" name="id" value="{{ data.id }}">
+                <input type="hidden" name="id" value="{{ data.id }}" />
                 <div class="form-group mb-2">
-                    <label for="" class="mb-2">Full name: </label>
-                    <input type="text" class="form-control" name="full_name" value="{{ data.full_name }}">
+                    <label class="mb-2">Full Name</label>
+                    <input
+                        type="text"
+                        class="form-control"
+                        name="full_name"
+                        value="{{ data.full_name }}"
+                    >
                 </div>
                 <div class="form-group mb-2">
-                    <label for="" class="mb-2">Contact: </label>
-                    <input type="text" class="form-control" name="contact" value="{{ data.contact }}">
+                    <label class="mb-2">Contact</label>
+                    <input
+                        type="text"
+                        class="form-control"
+                        name="contact"
+                        value="{{ data.contact }}"
+                    >
                 </div>
                 <div class="form-group mb-2">
-                    <label for="" class="mb-2">Email: </label>
-                    <input type="email" class="form-control" name="email" value="{{ data.email }}">
+                    <label class="mb-2">Email</label>
+                    <input
+                        type="email"
+                        class="form-control"
+                        name="email"
+                        value="{{ data.email }}"
+                    >
                 </div>
                 <div class="form-group mb-2">
-                    <label for="" class="mb-2">Dob: </label>
-                    <input type="date" class="form-control" name="dob" value="{{ data.dob }}">
+                    <label class="mb-2">DOB</label>
+                    <input
+                        type="date"
+                        class="form-control"
+                        name="dob"
+                        value="{{ data.dob }}"
+                    >
                 </div>
                 <div class="form-group mb-2">
-                    <label for="" class="mb-2">Join Date: </label>
-                    <input type="date" class="form-control" name="join_date" value="{{ data.join_date }}">
+                    <label class="mb-2">Join Date</label>
+                    <input
+                        type="date"
+                        class="form-control"
+                        name="join_date"
+                        value="{{ data.join_date }}"
+                    >
                 </div>
                 <div class="form-group mb-2">
-                    <label for="" class="mb-2">Gender: </label>
-                    <input type="text" class="form-control" name="gender" value="{{ data.gender }}">
+                    <label class="mb-2">Gender</label>
+                    <input
+                        type="text"
+                        class="form-control"
+                        name="gender"
+                        value="{{ data.gender }}"
+                    >
                 </div>
                 <div class="form-group mb-2">
-                    <label for="" class="mb-2">Blood Group: </label>
-                    <input type="text" class="form-control" name="blood_group" value="{{ data.blood_group }}">
+                    <label class="mb-2">Blood Group</label>
+                    <input
+                        type="text"
+                        class="form-control"
+                        name="blood_group"
+                        value="{{ data.blood_group }}"
+                    >
                 </div>
                 <div class="form-group mb-2">
-                    <label for="" class="mb-2">Address: </label>
-                    <input type="text" class="form-control" name="address" value="{{ data.address }}">
+                    <label class="mb-2">Address</label>
+                    <input
+                        type="text"
+                        class="form-control"
+                        name="address"
+                        value="{{ data.address }}"
+                    >
                 </div>
                 <div class="form-group mb-2">
-                    <label for="">Select Department: </label>
-                    <select name="department" id="" class="form-control">
+                    <label>Select Department</label>
+                    <select name="department" class="form-control">
                         {% for val in department %}
                         <option value="{{ val.id }}">{{ val.department_name }}</option>
                         {% endfor %}
                     </select>
                 </div>
                 <div class="form-group mb-2">
-                    <label for="">Select User: </label>
-                    <select name="user" id="" class="form-control">
+                    <label>Select User</label>
+                    <select name="user" class="form-control">
                         {% for val in user %}
                         <option value="{{ val.id }}">{{ val.username }}</option>
                         {% endfor %}
                     </select>
                 </div>
-                <input type="submit" value="UPDATE" class="btn btn-primary">
+                <input type="submit" class="btn btn-primary mt-2" value="UPDATE">
             </form>
         </div>
         <div class="col-md-2"></div>

@@ -1,26 +1,9 @@
 from django import forms
-from .models import Employee, Department, EmployeeAttendance, EmployeeSalary
+from .models import Employee
 
 class EmployeeCreateForm(forms.ModelForm):
-    """ Form class for employee creation """
+    """ Form Class for Employee Creation """
     class Meta:
         fields = "__all__"
-        # fields = ("fullname","contact")
+        # fields = ("full_name", "contact")
         model = Employee
-
-class DepartmentCreateForm(forms.ModelForm):
-    """ Form class for department creation """
-    class Meta:
-        fields = "__all__"
-        model = Department
-
-class EmployeeAttendanceForm(forms.ModelForm):
-    class Meta:
-        fields = "__all__"
-        model = EmployeeAttendance
-
-class EmployeeSalaryForm(forms.ModelForm):
-    class Meta:
-        fields = "__all__"
-        model = EmployeeSalary
-

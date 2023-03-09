@@ -1,5 +1,6 @@
 from django.db import models
 from django.contrib.auth.models import User
+
 # Create your models here.
 class Department(models.Model):
     department_name = models.CharField(max_length=255)
@@ -8,29 +9,28 @@ class Department(models.Model):
 
     def __str__(self):
         return self.short_name
-        
-    class Meta:
-        db_table = 'app_department'
 
+    class Meta:
+        db_table = "app_department"
 
 class Employee(models.Model):
-     full_name = models.CharField(max_length=255)
-     contact = models.CharField(max_length=255)
-     email = models.EmailField()
-     dob = models.DateField()
-     join_date = models.DateField()
-     gender = models.CharField(max_length=255)
-     blood_group = models.CharField(max_length=255)
-     address = models.CharField(max_length=255)
-     user = models.ForeignKey(User, on_delete=models.CASCADE)
-     department = models.ForeignKey(Department, on_delete=models.CASCADE)
+    full_name = models.CharField(max_length=255)
+    contact = models.CharField(max_length=255)
+    email = models.EmailField()
+    dob = models.DateField()
+    join_date = models.DateField()
+    gender = models.CharField(max_length=255)
+    blood_group = models.CharField(max_length=255)
+    address = models.CharField(max_length=255)
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    department = models.ForeignKey(Department, on_delete=models.CASCADE)
 
-     def __str__(self):
-        return self.full_name
-        
-     class Meta:
+    class Meta:
         db_table = 'app_employee'
 
+    def __str__(self):
+        return self.full_name
+        
 class EmployeeAttendance(models.Model):
     status = models.BooleanField(default=True)
     employee = models.ForeignKey(Employee, on_delete=models.CASCADE)

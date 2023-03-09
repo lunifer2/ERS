@@ -22,7 +22,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/4.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-b9iw3mb_z(h_z3n-ced543+&g0rhe2(q=2&*w+w!og-u&l_@^1'
+SECRET_KEY = 'django-insecure-83c!!3tqrcurjr9)5wt7w^4s$&omy&!(%@42e28m%a)$s=^pq+'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -42,6 +42,8 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'app_employeewebsite',
     'authentication',
+    'ers_api',
+    'rest_framework'
 ]
 
 MIDDLEWARE = [
@@ -121,7 +123,7 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/4.1/howto/static-files/
 
 STATIC_URL = 'static/'
-STATICFILES_DIRS = [os.path.join(BASE_DIR,'static')]
+STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.1/ref/settings/#default-auto-field
@@ -131,10 +133,11 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 MESSAGE_TAGS = {
     messages.ERROR: 'danger',
 }
-#for gmail app
+
+# gmail smtp configuration
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_PORT = 587
 EMAIL_HOST_USER = ''
-EMAIL_HOST_PASSWORD = '' #app password
+EMAIL_HOST_PASSWORD = ''
 EMAIL_USE_TLS = True
